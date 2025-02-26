@@ -8,7 +8,7 @@ public class Main {
         Calculator calculator = new Calculator();
 
         while (true) {
-            System.out.println("\nScientific Calculator - Choose an operation from the below options:");
+            System.out.println("\nScientific Calculator - Choose an operation:");
             System.out.println("1. Square Root (√x)");
             System.out.println("2. Factorial (x!)");
             System.out.println("3. Natural Logarithm (ln(x))");
