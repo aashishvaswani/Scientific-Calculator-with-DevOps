@@ -1,0 +1,12 @@
+---
+- name: Deploy Dockerized Scientific Calculator
+  hosts: myhosts
+  become: yes
+  tasks:
+
+    - name: Pull the Docker image
+      command: docker pull aashishvaswani/scientific-calculator:latest
+
+    - name: Run the Scientific Calculator container
+      command: docker run --rm -dit aashishvaswani/scientific-calculator
+      
