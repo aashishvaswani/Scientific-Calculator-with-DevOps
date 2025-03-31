@@ -49,13 +49,14 @@ pipeline {
                     // '''
                 //}
 
-            script {
-              withEnv(["ANSIBLE_HOST_KEY_CHECKING=False"]) {   
-                ansiblePlaybook(
-                    playbook: 'playbook.yaml',
-                    inventory: 'inventory.ini'
-                )
-              }
+                script {
+                  withEnv(["ANSIBLE_HOST_KEY_CHECKING=False"]) {   
+                    ansiblePlaybook(
+                        playbook: 'playbook.yaml',
+                        inventory: 'inventory.ini'
+                    )
+                  }
+                }
             }
         }
     }
