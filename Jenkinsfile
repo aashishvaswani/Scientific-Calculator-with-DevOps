@@ -22,13 +22,7 @@ pipeline {
 
         stage('Build with Maven') {
             steps {
-                sh '/opt/homebrew/bin/mvn clean package'
-            }
-        }
-
-        stage('Run Unit Tests') {
-            steps {
-                sh '/opt/homebrew/bin/mvn test'
+                sh 'mvn clean package'
             }
         }
 
