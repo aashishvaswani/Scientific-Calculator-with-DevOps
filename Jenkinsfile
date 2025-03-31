@@ -42,11 +42,9 @@ pipeline {
 
         stage('Deploy with Ansible') {
             steps {
-                withCredentials([string(credentialsId: 'ansible_sudo_password', variable: 'SUDO_PASS')]) {
-                    sh '''
-                    ansible-playbook -i inventory.ini playbook.yaml --become --extra-vars "ansible_become_pass=$SUDO_PASS"
-                    '''
-                }
+                //withCredentials([string(credentialsId: 'ansible_sudo_password', variable: 'SUDO_PASS')]) {
+                    sh 'ansible-playbook -i inventory.ini playbook.yaml'
+                //}
             }
         }
     }
