@@ -35,13 +35,13 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo '$PATH'
-                sh '/usr/local/bin/docker build -t $DOCKER_IMAGE .'
+                sh 'docker build -t $DOCKER_IMAGE .'
             }
         }
 
         stage('Push to Docker Hub') {
             steps {
-                sh '/usr/local/bin/docker push $DOCKER_IMAGE'
+                sh 'docker push $DOCKER_IMAGE'
             }
         }
         
