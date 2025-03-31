@@ -8,5 +8,5 @@
       command: docker pull aashishvaswani/scientific-calculator:latest
 
     - name: Run the Scientific Calculator container
-      command: docker run --rm -dit aashishvaswani/scientific-calculator
+      command: docker run --rm -it aashishvaswani/scientific-calculator
       
