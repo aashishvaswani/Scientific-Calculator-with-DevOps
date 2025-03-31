@@ -31,14 +31,6 @@ pipeline {
                 sh '/opt/homebrew/bin/mvn test'
             }
         }
-        
-        stage('Test Docker in Jenkins') {
-            steps {
-                script {
-                    sh '/usr/local/bin/docker run hello-world'
-                }
-            }
-        }
 
         stage('Build Docker Image') {
             steps {
