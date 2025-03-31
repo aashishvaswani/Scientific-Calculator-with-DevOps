@@ -42,20 +42,11 @@ pipeline {
 
         stage('Deploy with Ansible') {
             steps {
-                //withCredentials([string(credentialsId: 'ansible_sudo_password', variable: 'SUDO_PASS')]) {
-                    // sh '''
-                    //     export ANSIBLE_HOST_KEY_CHECKING=False
-                    //     ansible-playbook -i inventory.ini playbook.yaml
-                    // '''
-                //}
-
-                script {
-                  withEnv(["ANSIBLE_HOST_KEY_CHECKING=False"]) {   
-                    ansiblePlaybook(
-                        playbook: 'playbook.yaml',
-                        inventory: 'inventory.ini'
-                    )
-                  }
+                withCredentials([string(credentialsId: 'ansible_sudo_password', variable: 'SUDO_PASS')]) {
+                    sh '''
+                        export ANSIBLE_HOST_KEY_CHECKING=False
+                        ansible-playbook -i inventory.ini playbook.yaml --become --extra-vars "ansible_become_pass=$SUDO_PASS"
+                    '''
                 }
             }
         }
