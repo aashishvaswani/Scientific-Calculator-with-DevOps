@@ -45,7 +45,7 @@ pipeline {
                 //withCredentials([string(credentialsId: 'ansible_sudo_password', variable: 'SUDO_PASS')]) {
                     sh '''
                         export ANSIBLE_HOST_KEY_CHECKING=False
-                        ansible-playbook -i inventory deploy.yml
+                        ansible-playbook -i inventory.ini playbook.yaml
                     '''
                 //}
             }
