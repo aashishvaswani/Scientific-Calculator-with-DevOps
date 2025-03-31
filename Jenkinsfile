@@ -43,7 +43,10 @@ pipeline {
         stage('Deploy with Ansible') {
             steps {
                 //withCredentials([string(credentialsId: 'ansible_sudo_password', variable: 'SUDO_PASS')]) {
-                    sh 'ansible-playbook -i inventory.ini playbook.yaml'
+                    sh '''
+                        export ANSIBLE_HOST_KEY_CHECKING=False
+                        ansible-playbook -i inventory deploy.yml
+                    '''
                 //}
             }
         }
